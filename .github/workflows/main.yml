@@ -10,7 +10,7 @@ jobs:
     permissions:
       contents: write
     steps:
-    - uses: bcanseco/github-contribution-graph-action@v2
+    - uses: bcanseco/github-contribution-graph-action@2.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GIT_EMAIL: bigneshkumar170@gmail.com 
