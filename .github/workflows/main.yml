@@ -1,16 +1,19 @@
-# .github/workflows/main.yml
+name: Auto Contribution
 
 on:
   schedule:
-  - cron: '0 12 * * *' # every day at noon
+    - cron: "0 12 * * *" # every day at noon UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   single-commit:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-    - uses: bcanseco/github-contribution-graph-action@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GIT_EMAIL: bigneshkumar170@gmail.com 
+      - name: Make contribution commit
+        uses: bcanseco/github-contribution-graph-action@2.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_EMAIL: bigneshkumar170@gmail.com
